@@ -98,17 +98,18 @@ keymap("n", "<leader>D", "<cmd>lua require'telescope'.extensions.file_browser.fi
 keymap("n", "<leader>q", "<cmd>lua ToggleQuickfixList()<cr>", opts)
 keymap("n", "[q", ":cprev<cr>", opts)
 keymap("n", "]q", ":cnext<cr>", opts)
---
--- local generalSettingsGroup = vim.api.nvim_create_augroup('General settings', { clear = true })
---
--- vim.api.nvim_create_autocmd('FileType', {
---     pattern = { '*.py' },
---     callback = function()
---         vim.opt.foldmethod = 'indent'
---     end,
---     group = generalSettingsGroup,
--- })
---
+
+function _SET_CLIPBOARD(clip_value)
+  local current_clip_value = vim.api.nvim_exec("set clipboard?", true)
+  local current_value = string.match(current_clip_value, "=(.+)") 
+  if current_value == clip_value then
+    clip_value=""
+  end
+  vim.cmd("set clipboard=" .. clip_value)
+  vim.cmd("set clipboard?")
+end
+
+keymap("n", "`", "<cmd>lua _SET_CLIPBOARD('unnamedplus')<cr>", opts)
 
 vim.cmd([[
           function! QuickfixMapping()

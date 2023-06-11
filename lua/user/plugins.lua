@@ -54,7 +54,6 @@ return packer.startup(function(use)
 	use { "moll/vim-bbye" }
   use { "nvim-lualine/lualine.nvim" }
   use { "akinsho/toggleterm.nvim" }
-  use { "ahmedkhalf/project.nvim" }
   -- use { "lewis6991/impatient.nvim" }
   use { "lukas-reineke/indent-blankline.nvim" }
   -- use { "goolord/alpha-nvim" }
@@ -84,14 +83,14 @@ return packer.startup(function(use)
   -- use { "RRethy/vim-illuminate" }
 
 	-- Telescope
-  use { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
-	use { "nvim-telescope/telescope.nvim" }
-  use {"nvim-telescope/telescope-file-browser.nvim",
-        requires = { "nvim-telescope/telescope.nvim", "nvim-lua/plenary.nvim" }
-      }
+  use { "nvim-telescope/telescope-fzf-native.nvim", run = 'make' }
+	use { "nvim-telescope/telescope.nvim", requires = { "nvim-lua/plenary.nvim" } }
+  use { "nvim-telescope/telescope-file-browser.nvim", requires = { "nvim-telescope/telescope.nvim" } }
+  -- use { "nvim-telescope/telescope-project.nvim", requires = { "nvim-telescope/telescope.nvim" } }
 	use { "stefandtw/quickfix-reflector.vim" }
 	use { "milkypostman/vim-togglelist" }
   use { "AckslD/nvim-neoclip.lua", requires = { 'nvim-telescope/telescope.nvim' } }
+  use { "ahmedkhalf/project.nvim" }
 
 	-- Treesitter
 	use {"nvim-treesitter/nvim-treesitter"}
