@@ -10,4 +10,5 @@ require  "user.treesitter"
 require  "user.telescope"
 require  "user.toggleterm"
 require  "user.neoclip"
+require  "user.autopairs"
 
