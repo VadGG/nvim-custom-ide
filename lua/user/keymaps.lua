@@ -89,8 +89,11 @@ keymap("n", "<leader>e", ":NvimTreeToggle<cr>", opts)
 keymap("n", "<leader>f", "<cmd>lua require'telescope.builtin'.find_files(require('telescope.themes').get_dropdown({previewer = false}))<cr>", opts)
 keymap("n", "<leader>g", "<cmd>lua require'telescope.builtin'.live_grep({ layout_stategory = 'vertical' })<cr>", opts)
 keymap("n", "<leader>b", "<cmd>lua require'telescope.builtin'.buffers({ ignore_current_buffer = true, sort_mru = true})<cr>", opts)
-keymap("n", [[<c-\>]], "<cmd>lua require'telescope.builtin'.commands({})<cr>", opts)
+-- keymap("n", [[<c-\>]], "<cmd>lua require'telescope.builtin'.commands({})<cr>", opts)
 keymap("n", "<leader>p", "<cmd>Telescope neoclip theme=dropdown<cr>", opts)
+keymap("n", "<leader>o", "<cmd>lua require'telescope'.extensions.projects.projects()<cr>", opts)
+keymap("n", "<leader>d", "<cmd>lua require'telescope'.extensions.file_browser.file_browser()<cr>", opts)
+keymap("n", "<leader>D", "<cmd>lua require'telescope'.extensions.file_browser.file_browser({initial_mode = 'insert'})<cr>", opts)
 
 keymap("n", "<leader>q", "<cmd>lua ToggleQuickfixList()<cr>", opts)
 keymap("n", "[q", ":cprev<cr>", opts)
@@ -114,6 +117,7 @@ vim.cmd([[
           " Go to the next location and stay in the quickfix window
             nnoremap <buffer> J :cnext<CR>zz<C-w>w
 
+            nnoremap <buffer> <Tab> <CR>zz<C-w>w
             " Begin the search and replace
             nnoremap <buffer> <leader>r :cdo s/// \| update<C-Left><C-Left><Left><Left><Left>
           endfunction
