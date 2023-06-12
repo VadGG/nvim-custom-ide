@@ -48,10 +48,6 @@ telescope.setup {
         }
     }
 
-
-
-
-
     -- Default configuration for builtin pickers goes here:
     -- picker_name = {
     --   picker_config_key = value,
@@ -74,6 +70,11 @@ telescope.setup {
     },
     live_grep_args = {
       initial_mode = "insert"
+    },
+    live_grep_args = {
+        initial_mode = "insert",
+        layout_strategy = 'vertical',
+        sorting_strategy = 'ascending'
     },
     -- Your extension configuration goes here:
     -- extension_name = {
