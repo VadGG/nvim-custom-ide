@@ -72,6 +72,9 @@ telescope.setup {
       -- disables netrw and use telescope-file-browser in its place
       hijack_netrw = true,
     },
+    live_grep_args = {
+      initial_mode = "insert"
+    },
     -- Your extension configuration goes here:
     -- extension_name = {
     --   extension_config_key = value,
@@ -82,3 +85,4 @@ telescope.setup {
 
 telescope.load_extension('fzf')
 telescope.load_extension("file_browser")
+telescope.load_extension("live_grep_args")

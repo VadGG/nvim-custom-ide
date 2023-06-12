@@ -45,20 +45,24 @@ return packer.startup(function(use)
   use { "nvim-lua/plenary.nvim" } -- Useful lua functions used by lots of plugins
   use { "windwp/nvim-autopairs" } -- Autopairs, integrates with both cmp and treesitter
   
-  use { "numToStr/Comment.nvim" }
-
   -- use { "JoosepAlviste/nvim-ts-context-commentstring" }
   use { "kyazdani42/nvim-web-devicons" }
-  use { "kyazdani42/nvim-tree.lua", requires = "kyazdani42/nvim-web-devicons", }
+  use {
+    "kyazdani42/nvim-tree.lua",
+    requires = "kyazdani42/nvim-web-devicons",
+  }
   use { "akinsho/bufferline.nvim" }
-	use { "moll/vim-bbye" }
   use { "nvim-lualine/lualine.nvim" }
   use { "akinsho/toggleterm.nvim" }
   -- use { "lewis6991/impatient.nvim" }
   use { "lukas-reineke/indent-blankline.nvim" }
   -- use { "goolord/alpha-nvim" }
 	-- use {"folke/which-key.nvim"}
-
+  use {
+    'echasnovski/mini.nvim',
+    branch = 'stable'
+  }
+  
 	-- Colorschemes
   use { "sainnhe/everforest" }
   use { "rmehri01/onenord.nvim" }
@@ -83,20 +87,44 @@ return packer.startup(function(use)
   -- use { "RRethy/vim-illuminate" }
 
 	-- Telescope
-  use { "nvim-telescope/telescope-fzf-native.nvim", run = 'make' }
-	use { "nvim-telescope/telescope.nvim", requires = { "nvim-lua/plenary.nvim" } }
-  use { "nvim-telescope/telescope-file-browser.nvim", requires = { "nvim-telescope/telescope.nvim" } }
+  use { "nvim-telescope/telescope-live-grep-args.nvim" }
+  use {
+    "nvim-telescope/telescope-fzf-native.nvim",
+    run = 'make'
+  }
+	use {
+	  "nvim-telescope/telescope.nvim",
+	  requires = {
+	    "nvim-lua/plenary.nvim",
+	    "nvim-telescope/telescope-live-grep-args.nvim" ,
+	  }
+	}
+  use {
+    "nvim-telescope/telescope-file-browser.nvim",
+    requires = { "nvim-telescope/telescope.nvim" }
+  }
   -- use { "nvim-telescope/telescope-project.nvim", requires = { "nvim-telescope/telescope.nvim" } }
 	use { "stefandtw/quickfix-reflector.vim" }
 	use { "milkypostman/vim-togglelist" }
-  use { "AckslD/nvim-neoclip.lua", requires = { 'nvim-telescope/telescope.nvim' } }
+  use {
+    "AckslD/nvim-neoclip.lua",
+    requires = {
+      'nvim-telescope/telescope.nvim'
+    }
+  }
   use { "ahmedkhalf/project.nvim" }
 
 	-- Treesitter
 	use {"nvim-treesitter/nvim-treesitter"}
 
 	-- YAML
-  use { "cuducos/yaml.nvim", requires = { "nvim-telescope/telescope.nvim", "nvim-treesitter/nvim-treesitter"  } }
+  use {
+    "cuducos/yaml.nvim",
+    requires = {
+      "nvim-telescope/telescope.nvim",
+      "nvim-treesitter/nvim-treesitter"
+    }
+  }
   -- Git
 	-- use { "lewis6991/gitsigns.nvim" }
 
