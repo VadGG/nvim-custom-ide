@@ -20,3 +20,6 @@ require  "user.mremovebuffer"
 require  "user.msplitjoin"
 require  "user.msurround"
 require  "user.mtailspace"
+
+require  "user.peekup"
+require  "user.searchreplace"

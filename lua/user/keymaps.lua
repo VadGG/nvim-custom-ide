@@ -30,28 +30,28 @@ local keymap = vim.api.nvim_set_keymap
 -- keymap("n", "<C-c>", '"*yy', opts)
 -- keymap("v", "<C-c>", '"*y', opts)
 -- keymap("n", "<C-v>", '"*p', opts)
--- keymap("v", "<C-v>", '"*p<CR>', opts)
+-- keymap("v", "<C-v>", '"*p<cr>', opts)
 
 -- -- Flip nvim and system clipboard
--- keymap("v", "<C-c>", ':let @+=@"<CR>', opts)
--- keymap("n", "<C-c>", ':let @+=@"<CR>', opts)
--- keymap("v", "<C-v>", ':let @"=@+<CR>', opts)
--- keymap("n", "<C-v>", ':let @"=@+<CR>', opts)
+-- keymap("v", "<C-c>", ':let @+=@"<cr>', opts)
+-- keymap("n", "<C-c>", ':let @+=@"<cr>', opts)
+-- keymap("v", "<C-v>", ':let @"=@+<cr>', opts)
+-- keymap("n", "<C-v>", ':let @"=@+<cr>', opts)
 
 -- -- Resize with arrows
-keymap("n", "<C-Up>", ":resize -2<CR>", opts)
-keymap("n", "<C-Down>", ":resize +2<CR>", opts)
-keymap("n", "<C-Left>", ":vertical resize -2<CR>", opts)
-keymap("n", "<C-Right>", ":vertical resize +2<CR>", opts)
+keymap("n", "<C-Up>", ":resize -2<cr>", opts)
+keymap("n", "<C-Down>", ":resize +2<cr>", opts)
+keymap("n", "<C-Left>", ":vertical resize -2<cr>", opts)
+keymap("n", "<C-Right>", ":vertical resize +2<cr>", opts)
 --
 -- -- Navigate buffer
-keymap("n", "<S-l>", ":bnext<CR>", opts)
-keymap("n", "<S-h>", ":bprevious<CR>", opts)
-keymap("n", "<C-q>", "<cmd>lua MiniBufremove.delete()<CR>", opts)
+keymap("n", "<S-l>", ":bnext<cr>", opts)
+keymap("n", "<S-h>", ":bprevious<cr>", opts)
+keymap("n", "<C-q>", "<cmd>lua MiniBufremove.delete()<cr>", opts)
 --
 -- -- Move text up and down
--- keymap("n", "<A-j>", "<Esc>:m .+1<CR>==gi", opts)
--- keymap("n", "<A-k>", "<Esc>:m .-2<CR>==gi", opts)
+-- keymap("n", "<A-j>", "<Esc>:m .+1<cr>==gi", opts)
+-- keymap("n", "<A-k>", "<Esc>:m .-2<cr>==gi", opts)
 --
 -- -- Insert --
 -- -- Press jk fast to exit insert mode 
@@ -135,3 +135,23 @@ vim.cmd([[
           augroup END
        ]])
 
+keymap("v", "<C-r>", "<cmd>SearchReplaceSingleBufferVisualSelection<cr>", opts)
+keymap("v", "<C-s>", "<cmd>SearchReplaceWithinVisualSelection<cr>", opts)
+keymap("v", "<C-b>", "<cmd>SearchReplaceWithinVisualSelectionCWord<cr>", opts)
+
+keymap("n", "<leader>rs", "<cmd>SearchReplaceSingleBufferSelections<cr>", opts)
+keymap("n", "<leader>ro", "<cmd>SearchReplaceSingleBufferOpen<cr>", opts)
+keymap("n", "<leader>rw", "<cmd>SearchReplaceSingleBufferCWord<cr>", opts)
+keymap("n", "<leader>rW", "<cmd>SearchReplaceSingleBufferCWORD<cr>", opts)
+keymap("n", "<leader>re", "<cmd>SearchReplaceSingleBufferCExpr<cr>", opts)
+keymap("n", "<leader>rf", "<cmd>SearchReplaceSingleBufferCFile<cr>", opts)
+
+keymap("n", "<leader>rbs", "<cmd>SearchReplaceMultiBufferSelections<cr>", opts)
+keymap("n", "<leader>rbo", "<cmd>SearchReplaceMultiBufferOpen<cr>", opts)
+keymap("n", "<leader>rbw", "<cmd>SearchReplaceMultiBufferCWord<cr>", opts)
+keymap("n", "<leader>rbW", "<cmd>SearchReplaceMultiBufferCWORD<cr>", opts)
+keymap("n", "<leader>rbe", "<cmd>SearchReplaceMultiBufferCExpr<cr>", opts)
+keymap("n", "<leader>rbf", "<cmd>SearchReplaceMultiBufferCFile<cr>", opts)
+
+-- show the effects of a search / replace in a live preview window
+vim.o.inccommand = "split"

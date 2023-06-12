@@ -54,6 +54,7 @@ return packer.startup(function(use)
   use { "akinsho/bufferline.nvim" }
   use { "nvim-lualine/lualine.nvim" }
   use { "akinsho/toggleterm.nvim" }
+  use { "roobert/search-replace.nvim" }
   -- use { "lewis6991/impatient.nvim" }
   use { "lukas-reineke/indent-blankline.nvim" }
   -- use { "goolord/alpha-nvim" }
@@ -62,6 +63,7 @@ return packer.startup(function(use)
     'echasnovski/mini.nvim',
     branch = 'stable'
   }
+  use { "gennaro-tedesco/nvim-peekup" }
   
 	-- Colorschemes
   use { "sainnhe/everforest" }
