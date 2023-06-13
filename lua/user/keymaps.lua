@@ -24,7 +24,11 @@ local keymap = vim.api.nvim_set_keymap
 -- keymap("n", "<C-j>", "<C-w>j", opts)
 -- keymap("n", "<C-k>", "<C-w>k", opts)
 -- keymap("n", "<C-l>", "<C-w>l", opts)
---
+keymap("n", "<C-h>", "<cmd> TmuxNavigateLeft<cr>", opts)
+keymap("n", "<C-l>", "<cmd> TmuxNavigateRight<cr>", opts)
+keymap("n", "<C-j>", "<cmd> TmuxNavigateDown<cr>", opts)
+keymap("n", "<C-k>", "<cmd> TmuxNavigateUp<cr>", opts)
+
 
 -- Ctrl+c/Ctrl+v to copy and paste --
 -- keymap("n", "<C-c>", '"*yy', opts)
