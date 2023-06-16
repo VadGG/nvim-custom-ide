@@ -24,11 +24,12 @@ local keymap = vim.api.nvim_set_keymap
 -- keymap("n", "<C-j>", "<C-w>j", opts)
 -- keymap("n", "<C-k>", "<C-w>k", opts)
 -- keymap("n", "<C-l>", "<C-w>l", opts)
+--
+keymap("n", "-", "$", opts)
 keymap("n", "<C-h>", "<cmd> TmuxNavigateLeft<cr>", opts)
 keymap("n", "<C-l>", "<cmd> TmuxNavigateRight<cr>", opts)
 keymap("n", "<C-j>", "<cmd> TmuxNavigateDown<cr>", opts)
 keymap("n", "<C-k>", "<cmd> TmuxNavigateUp<cr>", opts)
-
 
 -- Ctrl+c/Ctrl+v to copy and paste --
 -- keymap("n", "<C-c>", '"*yy', opts)
@@ -43,10 +44,10 @@ keymap("n", "<C-k>", "<cmd> TmuxNavigateUp<cr>", opts)
 -- keymap("n", "<C-v>", ':let @"=@+<cr>', opts)
 
 -- -- Resize with arrows
-keymap("n", "<C-Up>", ":resize -2<cr>", opts)
-keymap("n", "<C-Down>", ":resize +2<cr>", opts)
-keymap("n", "<C-Left>", ":vertical resize -2<cr>", opts)
-keymap("n", "<C-Right>", ":vertical resize +2<cr>", opts)
+keymap("n", "<C-Up>", ":resize -5<cr>", opts)
+keymap("n", "<C-Down>", ":resize +5<cr>", opts)
+keymap("n", "<C-Right>", ":vertical resize -5<cr>", opts)
+keymap("n", "<C-Left>", ":vertical resize +5<cr>", opts)
 --
 -- -- Navigate buffer
 keymap("n", "<S-l>", ":bnext<cr>", opts)
@@ -97,8 +98,8 @@ keymap("n", "<leader>b", "<cmd>lua require'telescope.builtin'.buffers({ ignore_c
 -- keymap("n", [[<c-\>]], "<cmd>lua require'telescope.builtin'.commands({})<cr>", opts)
 keymap("n", "<leader>p", "<cmd>Telescope neoclip theme=dropdown<cr>", opts)
 keymap("n", "<leader>o", "<cmd>lua require'telescope'.extensions.projects.projects()<cr>", opts)
-keymap("n", "<leader>d", "<cmd>lua require'telescope'.extensions.file_browser.file_browser()<cr>", opts)
-keymap("n", "<leader>D", "<cmd>lua require'telescope'.extensions.file_browser.file_browser({initial_mode = 'insert'})<cr>", opts)
+keymap("n", "<leader>d", "<cmd>lua require'telescope'.extensions.file_browser.file_browser({path = '%:p:h' })<cr>", opts)
+keymap("n", "<leader>D", "<cmd>lua require'telescope'.extensions.file_browser.file_browser({path = '%:p:h', initial_mode = 'insert'})<cr>", opts)
 
 keymap("n", "<leader>q", "<cmd>lua ToggleQuickfixList()<cr>", opts)
 -- keymap("n", "[q", ":cprev<cr>", opts)

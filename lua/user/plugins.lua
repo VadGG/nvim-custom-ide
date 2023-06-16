@@ -45,13 +45,13 @@ return packer.startup(function(use)
   use { "nvim-lua/plenary.nvim" } -- Useful lua functions used by lots of plugins
   use { "windwp/nvim-autopairs" } -- Autopairs, integrates with both cmp and treesitter
   use { "christoomey/vim-tmux-navigator", lazy = false }
-  
   -- use { "JoosepAlviste/nvim-ts-context-commentstring" }
   use { "kyazdani42/nvim-web-devicons" }
   use {
     "kyazdani42/nvim-tree.lua",
     requires = "kyazdani42/nvim-web-devicons",
   }
+  
   use { "akinsho/bufferline.nvim" }
   use { "nvim-lualine/lualine.nvim" }
   use { "akinsho/toggleterm.nvim" }
@@ -119,6 +119,9 @@ return packer.startup(function(use)
 
 	-- Treesitter
 	use {"nvim-treesitter/nvim-treesitter"}
+	use {"nvim-treesitter/nvim-treesitter-context",
+    config = function() require('treesitter-context').setup() end
+  }
 
 	-- YAML
   use {
