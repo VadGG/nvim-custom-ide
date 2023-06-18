@@ -6,9 +6,9 @@ local term_opts = { silent = true }
 local keymap = vim.api.nvim_set_keymap
 
 --Remap space as leader key
--- keymap("", "<Space>", "<Nop>", opts)
--- vim.g.mapleader = " "
--- vim.g.maplocalleader = " "
+keymap("", "<Space>", "", opts)
+vim.g.mapleader = " "
+vim.g.maplocalleader = " "
 
 -- Modes
 --   normal_mode = "n",
@@ -44,10 +44,10 @@ keymap("n", "<C-k>", "<cmd> TmuxNavigateUp<cr>", opts)
 -- keymap("n", "<C-v>", ':let @"=@+<cr>', opts)
 
 -- -- Resize with arrows
-keymap("n", "<C-Up>", ":resize -5<cr>", opts)
-keymap("n", "<C-Down>", ":resize +5<cr>", opts)
-keymap("n", "<C-Right>", ":vertical resize -5<cr>", opts)
-keymap("n", "<C-Left>", ":vertical resize +5<cr>", opts)
+keymap("n", "<C-Up>", ":resize -10<cr>", opts)
+keymap("n", "<C-Down>", ":resize +10<cr>", opts)
+keymap("n", "<C-Right>", ":vertical resize -10<cr>", opts)
+keymap("n", "<C-Left>", ":vertical resize +10<cr>", opts)
 --
 -- -- Navigate buffer
 keymap("n", "<S-l>", ":bnext<cr>", opts)
@@ -90,20 +90,12 @@ keymap("n", "<leader>e", ":NvimTreeToggle<cr>", opts)
 -- keymap("t", "<C-k>", "<C-\\><C-N><C-w>k", term_opts)
 -- keymap("t", "<C-l>", "<C-\\><C-N><C-w>l", term_opts)
 
--- keymap("n", "<leader>f", "<cmd>lua require'telescope.builtin'.find_files()<cr>", opts)
-keymap("n", "<leader>f", "<cmd>lua require'telescope.builtin'.find_files(require('telescope.themes').get_dropdown({previewer = false}))<cr>", opts)
--- keymap("n", "<leader>g", "<cmd>lua require'telescope.builtin'.live_grep({ layout_stategory = 'vertical' })<cr>", opts)
-keymap("n", "<leader>g", "<cmd>lua require'telescope'.extensions.live_grep_args.live_grep_args()<CR>", opts)
-keymap("n", "<leader>b", "<cmd>lua require'telescope.builtin'.buffers({ ignore_current_buffer = true, sort_mru = true})<cr>", opts)
--- keymap("n", [[<c-\>]], "<cmd>lua require'telescope.builtin'.commands({})<cr>", opts)
-keymap("n", "<leader>p", "<cmd>Telescope neoclip theme=dropdown<cr>", opts)
-keymap("n", "<leader>o", "<cmd>lua require'telescope'.extensions.projects.projects()<cr>", opts)
-keymap("n", "<leader>d", "<cmd>lua require'telescope'.extensions.file_browser.file_browser({path = '%:p:h' })<cr>", opts)
-keymap("n", "<leader>D", "<cmd>lua require'telescope'.extensions.file_browser.file_browser({path = '%:p:h', initial_mode = 'insert'})<cr>", opts)
-
-keymap("n", "<leader>q", "<cmd>lua ToggleQuickfixList()<cr>", opts)
--- keymap("n", "[q", ":cprev<cr>", opts)
--- keymap("n", "]q", ":cnext<cr>", opts)
+-- keymap("n", "<leader>f", "<cmd>lua require'telescope.builtin'.find_files(require('telescope.themes').get_dropdown({previewer = false}))<cr>", opts)
+-- keymap("n", "<leader>/", "<cmd>lua require'telescope'.extensions.live_grep_args.live_grep_args()<CR>", opts)
+-- keymap("n", "<leader>b", "<cmd>lua require'telescope.builtin'.buffers({ ignore_current_buffer = true, sort_mru = true})<cr>", opts)
+-- keymap("n", "<leader>fp", "<cmd>Telescope neoclip theme=dropdown<cr>", opts)
+-- keymap("n", "<leader>fo", "<cmd>lua require'telescope'.extensions.projects.projects()<cr>", opts)
+-- keymap("n", "<leader>q", "<cmd>lua ToggleQuickfixList()<cr>", opts)
 
 function _SET_CLIPBOARD(clip_value)
   local current_clip_value = vim.api.nvim_exec("set clipboard?", true)
